@@ -1,0 +1,108 @@
+:root {
+  --battery-width: 60vh;
+  --battery-height: 17vw;
+  --battery-body-gap: 5px;
+  --battery-body-padding: 8px;
+  --positive-width: 20px;
+  --positive-height: 50px;
+  --positive-border-radius: 5px;
+  --num-fills: 5;
+  --max-battery-width: 220px;
+  --max-battery-height: 100px;
+
+  @media screen and (orientation: portrait) {
+    --battery-width: 25vh;
+    --battery-height: 22vw;
+  }
+}
+
+.battery {
+  border: 1px solid #d0c5c5;
+  height: var(--battery-height);
+  width: var(--battery-width);
+  max-height: var(--max-battery-height);
+  max-width: var(--max-battery-width);
+  background-color: #333333;
+  border-radius: 10px;
+  position: relative;
+}
+
+.battery__positive {
+  position: absolute;
+  width: var(--positive-width);
+  height: var(--positive-height);
+  right: calc(0px - var(--positive-width));
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #d0c5c5;
+  border-top-right-radius: var(--positive-border-radius);
+  border-bottom-right-radius: var(--positive-border-radius);
+}
+
+.battery__body {
+  display: flex;
+  gap: var(--battery-body-gap);
+  padding: var(--battery-body-padding);
+}
+
+.battery__fill {
+  background-color: rgba(250, 250, 250, 1);
+  height: calc(var(--battery-height) - (var(--battery-body-padding) * 2));
+  width: calc(
+    var(--max-battery-width) / var(--num-fills) - var(--battery-body-gap)
+  );
+  max-height: calc(
+    var(--max-battery-height) - (var(--battery-body-padding) * 2)
+  );
+  max-width: calc(
+    var(--battery-width) / var(--num-fills) - var(--battery-body-gap)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fill--show {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.fill--red {
+  background-color: rgb(255, 0, 0);
+  box-shadow: 0 0 15px 0 rgba(255, 0, 0, 0.9);
+}
+
+.fill--orange {
+  background-color: rgb(255, 106, 0);
+  box-shadow: 0 0 15px 0 rgba(255, 106, 0, 0.9);
+}
+
+.fill--yellow {
+  background-color: rgb(255, 184, 0);
+  box-shadow: 0 0 15px 0 rgba(255, 183, 0, 0.9);
+}
+
+.fill--lime {
+  background-color: rgb(145, 232, 66);
+  box-shadow: 0 0 15px 0 rgba(146, 232, 66, 0.9);
+}
+
+.fill--green {
+  background-color: rgb(100, 201, 8);
+  box-shadow: 0 0 15px 0 rgba(101, 201, 8, 0.9);
+}
+
+.battery--animate {
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0% {
+    box-shadow: 0 0 20px 5px rgba(45, 255, 196, 0.9);
+  }
+  50% {
+    box-shadow: 0 0 20px 8px rgba(45, 255, 196, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 20px 5px rgba(45, 255, 196, 0.9);
+  }
+}

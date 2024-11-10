@@ -1,0 +1,50 @@
+// CSS resets
+
+$base-line-height: 1.5;
+$extra-line-height: 0.5rem;
+
+@mixin box-sizing-reset {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  @include box-sizing-reset;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  line-height: calc(1em + #{$extra-line-height});
+}
+
+body {
+  min-height: 100dvh;
+  line-height: $base-line-height;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+}

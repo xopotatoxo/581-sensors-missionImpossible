@@ -1,0 +1,60 @@
+$light-size: 3vw;
+$min-light-size: 25px;
+
+.light {
+  position: absolute;
+  bottom: 8%;
+  left: 8%;
+  width: $light-size;
+  height: $light-size;
+  min-width: $min-light-size;
+  min-height: $min-light-size;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 1);
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(252, 94, 70, 0.9) 80%,
+    rgba(252, 94, 70, 0) 100%
+  );
+  box-shadow:
+    0 0 50px rgba(255, 0, 0, 1),
+    0 0 100px rgba(255, 0, 0, 1),
+    0 0 150px rgba(255, 0, 0, 1),
+    0 0 200px rgba(255, 0, 0, 1);
+  animation: lightFlicker 3s infinite;
+  user-select: none;
+}
+
+@keyframes lightFlicker {
+  40% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0.8;
+  }
+  43% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.5;
+  }
+  46% {
+    opacity: 1;
+  }
+}
+
+.light--blue {
+  background: rgba(0, 42, 255, 1);
+  background: radial-gradient(
+    circle,
+    rgba(0, 42, 255, 1) 0%,
+    rgb(51, 83, 243) 80%,
+    rgba(0, 42, 255, 0) 100%
+  );
+  box-shadow:
+    0 0 50px rgba(0, 42, 255, 1),
+    0 0 100px rgba(0, 42, 255, 1),
+    0 0 150px rgba(0, 42, 255, 1),
+    0 0 200px rgba(0, 42, 255, 1);
+}

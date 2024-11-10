@@ -1,0 +1,76 @@
+.light-sensor-container {
+  --battery-container-gap: 20px;
+  --battery-container-extra-space: 60px;
+
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  background: url('../../assets/circuit.png') no-repeat center center;
+  background-size: cover;
+}
+
+.light-sensor {
+  border: 1px solid #d0c5c5;
+  height: calc(
+    var(--battery-width) + var(--positive-width) +
+      var(--battery-container-extra-space)
+  );
+  width: calc(
+    var(--battery-height) * 3 + var(--battery-container-gap) * 2 +
+      var(--battery-container-extra-space)
+  );
+  max-height: calc(
+    var(--max-battery-width) + var(--positive-width) +
+      var(--battery-container-extra-space)
+  );
+  max-width: calc(
+    var(--max-battery-height) * 3 + var(--battery-container-gap) * 2 +
+      var(--battery-container-extra-space)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333333;
+}
+
+.battery-container {
+  transform: rotate(-90deg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.battery-container > :nth-child(2) {
+  transform: rotate(-180deg);
+}
+
+.battery-cell {
+  position: relative;
+}
+
+.battery-indicator {
+  position: absolute;
+  width: 10px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: red;
+  transition: background-color 0.5s ease;
+}
+
+.battery-indicator-1,
+.battery-indicator-3 {
+  left: calc(0px - var(--battery-container-extra-space));
+}
+
+.battery-indicator-2 {
+  left: calc(
+    min(var(--battery-width), var(--max-battery-width)) + var(--positive-height)
+  );
+}
+
+.battery-indicator-charged {
+  background-color: blue;
+  transition: background-color 0.5s ease;
+}

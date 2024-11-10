@@ -1,0 +1,8 @@
+@import 'sass/reset';
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333333;
+    color: #fafafa;
+  }
+}

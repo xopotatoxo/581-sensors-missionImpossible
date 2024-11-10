@@ -1,0 +1,55 @@
+.compass {
+  display: inline-block;
+}
+
+.compass--show {
+  padding: 1em;
+  width: 8rem;
+}
+
+.compass__heading {
+  text-align: center;
+  font-size: 2rem;
+  color: #fafafa;
+}
+
+.compass--hide {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.hide__text {
+  font-size: 2em;
+  text-align: center;
+}
+
+.glitch-res-1 {
+  filter: drop-shadow(0 0 0.25rem #8b0000) drop-shadow(0 0 0.75rem #cd5c5c)
+    drop-shadow(0 0 1rem #b22222);
+}
+
+.glitch-res-2 {
+  filter: drop-shadow(0 0 0.25rem #0e1a80) drop-shadow(0 0 0.75rem #6a7fff)
+    drop-shadow(0 0 1rem #0000a0);
+}
+
+.glitch-res-3 {
+  filter: drop-shadow(0 0 0.25rem #0a6b0b) drop-shadow(0 0 0.75rem #7bbe7a)
+    drop-shadow(0 0 1rem #4caf50);
+}
+
+.glitch-res-4 {
+  filter: drop-shadow(0 0 0.25rem #a88d14) drop-shadow(0 0 0.75rem #d1b700)
+    drop-shadow(0 0 1rem #ffc107);
+}
+
+.glitch-res-5 {
+  filter: drop-shadow(0 0 0.25rem #8b0f8b) drop-shadow(0 0 0.75rem #a86bff)
+    drop-shadow(0 0 1rem #d5006d);
+}
+
+.glitch-res-6 {
+  filter: drop-shadow(0 0 0.25rem #8b3e14) drop-shadow(0 0 0.75rem #eab68d)
+    drop-shadow(0 0 1rem #ff4500);
+}

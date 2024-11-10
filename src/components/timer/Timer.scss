@@ -1,0 +1,82 @@
+#react-p5-wrapper #defaultCanvas0 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.timer_outer_container {
+  width: 100%;
+  height: 100%;
+  background: url('../../assets/metal.jpg') no-repeat center center;
+  background-size: cover;
+  display: grid;
+  place-content: center;
+}
+
+.screencrack_container {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background-color: #333333;
+  margin-bottom: 3rem;
+}
+
+.timer__container {
+  text-align: center;
+  display: block;
+  padding-top: 2rem;
+}
+
+.timer__time {
+  font-size: 4rem;
+  border: 0.75rem solid grey;
+  color: #fff;
+  padding: 1.75rem;
+  background-color: #000;
+  display: inline-block;
+}
+
+.numpad__container,
+.disabled_numpad__container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 5rem);
+  margin: 0px auto;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.disabled_numpad__container .numpad__number {
+  border: 0.5rem solid black;
+  text-align: center;
+  vertical-align: middle;
+  background-color: gray;
+  color: white;
+  font-size: 4rem;
+}
+
+.numpad__container .numpad__number {
+  border: 0.5rem solid gray;
+}
+
+.numpad__number__pushable {
+  background: #770101;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+.numpad__number__front {
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  font-size: 4rem;
+  transform: translateY(-6px);
+  background: red;
+  width: 100%;
+  border: none;
+  user-select: none;
+}
+
+.numpad__number__front:active {
+  transform: translateY(-2px);
+  background-color: red;
+}

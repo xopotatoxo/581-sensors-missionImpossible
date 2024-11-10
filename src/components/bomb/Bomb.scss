@@ -1,0 +1,149 @@
+.bomb-scene {
+  --bomb-width: 500px;
+  --bomb-depth: calc(var(--bomb-width) / 3);
+  --bomb-height: calc(var(--bomb-depth) * 2);
+  --half-width: calc(var(--bomb-width) / 2);
+  --half-height: calc(var(--bomb-height) / 2);
+  --half-depth: calc(var(--bomb-depth) / 2);
+  --bomb-color: #1e1f1e;
+
+  width: var(--bomb-width);
+  height: var(--bomb-height);
+  margin-bottom: 4rem;
+  perspective: 400px;
+}
+
+.bomb {
+  width: var(--bomb-width);
+  height: var(--bomb-height);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(0px - var(--half-depth)));
+  transition: transform 1s;
+}
+
+.bomb__face {
+  position: absolute;
+  border: 1px solid var(--bomb-color);
+  transform-origin: center;
+  background-color: var(--bomb-color);
+}
+
+.bomb__face--front,
+.bomb__face--back {
+  width: var(--bomb-width);
+  height: var(--bomb-height);
+}
+
+.bomb__face--right,
+.bomb__face--left {
+  width: var(--bomb-depth);
+  height: var(--bomb-height);
+
+  // the left and right sides are aligned at top 0, center the face before turning it on the Y-axis
+  // to center it shift it left by the width of the face or the bombs depth
+  left: var(--bomb-depth);
+}
+
+.bomb__face--top,
+.bomb__face--bottom {
+  width: var(--bomb-width);
+  height: var(--bomb-depth);
+
+  // the top and bottom sides are aligned at top 0, center the face before turning it on the X-axis
+  // to center it shift it from the top down the height or in this case the bombs depth
+  top: var(--half-depth);
+}
+
+.bomb__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.bomb__modal-btn {
+  position: absolute;
+  top: 10%;
+  right: 11%;
+  border: none;
+  width: 5vw;
+  height: auto;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.modal-btn__img {
+  //width: 50px;
+  //height: 50px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+// Before these transforms all the faces are shifted backwards on the Z-plane by half of the bombs depth
+.bomb__face--front {
+  transform: rotateY(0deg) translateZ(var(--half-depth));
+}
+
+.bomb__face--back {
+  transform: rotateY(180deg) translateZ(var(--half-depth));
+}
+
+.bomb__face--right {
+  transform: rotateY(90deg) translateZ(var(--half-width));
+}
+
+.bomb__face--left {
+  transform: rotateY(-90deg) translateZ(var(--half-width));
+}
+
+.bomb__face--top {
+  transform: rotateX(90deg) translateZ(var(--half-height));
+}
+
+.bomb__face--bottom {
+  transform: rotateX(-90deg) translateZ(var(--half-height));
+}
+
+// Transitions to display a side
+.bomb.show-front {
+  transform: translateZ(calc(0px - var(--half-depth))) rotateY(0deg);
+}
+
+.bomb.show-back {
+  transform: translateZ(calc(0px - var(--half-depth))) rotateY(-180deg);
+}
+
+.bomb.show-right {
+  transform: translateZ(calc(0px - var(--half-width))) rotateY(-90deg);
+}
+
+.bomb.show-left {
+  transform: translateZ(calc(0px - var(--half-width))) rotateY(90deg);
+}
+
+.bomb.show-top {
+  transform: translateZ(calc(0px - var(--half-height))) rotateX(-90deg);
+}
+
+.bomb.show-bottom {
+  transform: translateZ(calc(0px - var(--half-height))) rotateX(90deg);
+}
+
+// Media queries for device orientation
+@media (orientation: portrait) {
+  .bomb-scene {
+    --bomb-width: 80vw;
+  }
+}
+
+@media (orientation: landscape) {
+  .bomb-scene {
+    --bomb-width: 100vh;
+  }
+}
+
+.bomb__controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

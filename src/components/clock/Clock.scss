@@ -1,0 +1,16 @@
+.lockscreen__time {
+  font-weight: 600;
+  font-size: clamp(7rem, 25vw, 15rem);
+}
+
+.lockscreen__date {
+  font-family: 'Calibri Light', serif;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  svg {
+    color: yellow;
+  }
+}

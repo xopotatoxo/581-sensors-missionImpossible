@@ -1,0 +1,59 @@
+.passcode_screen {
+  min-height: 100dvh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  //background: radial-gradient(ellipse at bottom, #2d2c2c 0%, #090a0f 100%);
+  background: rgba(0, 0, 0, 0.55) url('../../assets/scene.jpeg') no-repeat
+    center center;
+  background-blend-mode: darken;
+  background-size: cover;
+  overflow: hidden;
+
+  @media screen and (orientation: portrait) {
+    align-content: center;
+    gap: 5rem;
+  }
+}
+
+.passcode__attempt {
+  display: flex;
+  gap: 10px;
+}
+
+.passcode__toggles {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 65%;
+  //background-color: rgba(47, 46, 46, 0.99);
+  background-size: cover;
+  background: rgba(0, 0, 0, 0.55) url('../../assets/paper.jpg') no-repeat;
+  background-blend-mode: darken;
+  display: grid;
+  place-items: center;
+}
+
+.pass_bomb_wrapper {
+  z-index: 2;
+}
+
+.pass_error_overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 0, 0, 0.5);
+  z-index: 15;
+  animation: flash 1.2s infinite;
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
